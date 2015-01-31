@@ -1,4 +1,10 @@
 //go:generate stringer -type=State
+
+// A minimal binding for UPower over DBUS.
+// it is designed to be as simple as possible.
+
+//TODO: Perhaps using DisplayDevice is better than BAT0 from /org/freedesktop/UPower/devices/
+
 package upower
 
 import (

@@ -1,4 +1,8 @@
 //go:generate stringer -type=Urgency
+
+// A minimal binding for DBus Desktop Notifications,
+// it is designed to be as simple as send-notify.
+
 package notify
 
 import (
