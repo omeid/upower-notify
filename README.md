@@ -15,7 +15,7 @@ Usage of upower-notify:
   -report=false: Print out updates to stdout.
   -tick=10s: Update rate
   -warn=20m0s: Time to start warning. (Warn)
-`
+```
 
 if you're using `i3wm` or relatives, just chuck this or it's equalent in your startup script:
 
