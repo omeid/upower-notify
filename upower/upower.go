@@ -195,7 +195,7 @@ func New() (*UPower, error) {
 }
 
 type UPower struct {
-	dbus *dbus.Object
+	dbus dbus.BusObject
 }
 
 func (u *UPower) Get() (Update, error) {

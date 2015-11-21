@@ -33,7 +33,7 @@ type Message struct {
 }
 
 type Notifier struct {
-	dbus *dbus.Object
+	dbus dbus.BusObject
 
 	app string
 }
