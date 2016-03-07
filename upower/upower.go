@@ -179,14 +179,14 @@ func (s *Update) Changed(old Update) bool {
 
 }
 
-func New() (*UPower, error) {
+func New(device string) (*UPower, error) {
 
 	conn, err := dbus.SystemBus()
 	if err != nil {
 		return nil, err
 	}
 
-	up := conn.Object("org.freedesktop.UPower", "/org/freedesktop/UPower/devices/battery_BAT0")
+	up := conn.Object("org.freedesktop.UPower", dbus.ObjectPath(device))
 	if up == nil {
 		return nil, NoUpower
 	}
