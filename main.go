@@ -25,11 +25,11 @@ var (
 
 func main() {
 
-	flag.DurationVar(&tick,     "tick",     10*time.Second,                                  "Update rate")
-	flag.DurationVar(&warn,     "warn",     20*time.Minute,                                  "Time to start warning. (Warn)")
-	flag.DurationVar(&critical, "critical", 10*time.Minute,                                  "Time to start warning. (Critical)")
-	flag.StringVar(  &device,   "device",   "/org/freedesktop/UPower/devices/DisplayDevice", "DBus address of the battery device")
-	flag.BoolVar(    &report,   "report",   false,                                           "Print out updates to stdout.")
+	flag.DurationVar(&tick,     "tick",     10*time.Second,  "Update rate")
+	flag.DurationVar(&warn,     "warn",     20*time.Minute,  "Time to start warning. (Warn)")
+	flag.DurationVar(&critical, "critical", 10*time.Minute,  "Time to start warning. (Critical)")
+	flag.StringVar(  &device,   "device",   "DisplayDevice", "DBus device name for the battery")
+	flag.BoolVar(    &report,   "report",   false,           "Print out updates to stdout.")
 
 	flag.Parse()
 

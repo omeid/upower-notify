@@ -184,7 +184,8 @@ func New(device string) (*UPower, error) {
 		return nil, err
 	}
 
-	up := conn.Object("org.freedesktop.UPower", dbus.ObjectPath(device))
+	path := dbus.ObjectPath("/org/freedesktop/UPower/devices/" + device)
+	up := conn.Object("org.freedesktop.UPower", path)
 	if up == nil {
 		return nil, NoUpower
 	}
