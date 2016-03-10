@@ -3,8 +3,6 @@
 // A minimal binding for UPower over DBUS.
 // it is designed to be as simple as possible.
 
-//TODO: Perhaps using DisplayDevice is better than BAT0 from /org/freedesktop/UPower/devices/
-
 package upower
 
 import (
@@ -179,14 +177,15 @@ func (s *Update) Changed(old Update) bool {
 
 }
 
-func New() (*UPower, error) {
+func New(device string) (*UPower, error) {
 
 	conn, err := dbus.SystemBus()
 	if err != nil {
 		return nil, err
 	}
 
-	up := conn.Object("org.freedesktop.UPower", "/org/freedesktop/UPower/devices/battery_BAT0")
+	path := dbus.ObjectPath("/org/freedesktop/UPower/devices/" + device)
+	up := conn.Object("org.freedesktop.UPower", path)
 	if up == nil {
 		return nil, NoUpower
 	}
